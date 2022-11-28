@@ -1,0 +1,53 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "11.2.14",
+    "@angular/common": "11.2.14",
+    "@angular/compiler": "11.2.14",
+    "@angular/core": "11.2.14",
+    "@angular/forms": "11.2.14",
+    "@angular/platform-browser": "11.2.14",
+    "@angular/platform-browser-dynamic": "11.2.14",
+    "@angular/router": "11.2.14",
+    "@grapecity/wijmo": "5.20221.857",
+    "@grapecity/wijmo.angular2.all": "5.20221.857",
+    "@grapecity/wijmo.angular2.grid": "5.20221.857",
+    "@grapecity/wijmo.angular2.grid.sheet": "5.20221.857",
+    "@grapecity/wijmo.angular2.input": "5.20221.857",
+    "@grapecity/wijmo.grid": "5.20221.857",
+    "@grapecity/wijmo.input": "5.20221.857",
+    "@grapecity/wijmo.interop.grid": "5.20221.857",
+    "@grapecity/wijmo.styles": "5.20221.857",
+    "core-js": "2.6.5",
+    "jszip": "^3.10.1",
+    "rxjs": "6.5.2",
+    "zone.js": "0.8.29"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "devDependencies": {
+    "@types/node": "~8.9.4",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "~4.5.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.1"
+  }
+}

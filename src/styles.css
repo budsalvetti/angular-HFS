@@ -1,0 +1,15 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
+body {
+  margin-bottom: 24px;
+}
+
+.wj-flexgrid {
+  height: 300px;
+  margin-bottom: 12px;
+}
+
+.wj-flexsheet {
+  height: 400px;
+  margin: 6px 0;
+}

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <!-- the flexsheet -->
+  <wj-flex-sheet #flex style="height:400px" (initialized)="initializeFlexSheet(flex)">
+    <wj-sheet [name]="'New Grid'" [rowCount]="5" [columnCount]="3"></wj-sheet>
+  </wj-flex-sheet>
+</div>
+
+<div class="TaskBody">
+
+  <h1>
+    Tasks: Create the New Worksheet Dynamically
+  </h1>
+
+  <ul>
+    <li>
+    <b>Task 1)</b> Set Grid to 11 rows, 6 columns, & named 'Next Gen Worksheet' in Angular component init using variables. 
+    </li>
+    <li>
+    <b>Task 2)</b> Set the Column Headers (Row 1) to display incrementing even numbers
+    </li>
+    <li>
+    <b>Task 3)</b> Set the Row Headers (Column A) to display prime numbers incrementing down
+    </li>
+    <li>
+    <b>Task 4)</b> Fill rows 2-10 of the grid with numbers 1-45
+    </li>
+    <li>
+    <b>Task 5)</b> Set each cell in the row 11 to a formula that adds the value of the numbers above it
+    </li>
+    <li>
+    <b>Task 6)</b> Format the row header and row columns with grey background and white text, and formula line light blue
+    </li>
+  </ul>
+
+  <p> Feel free to use the web in any way you need. The below link may be helpful as well:
+  </p>
+  <a>https://www.grapecity.com/wijmo/demos/Grid/FlexSheet/Unbound/angular</a>
+
+</div>
