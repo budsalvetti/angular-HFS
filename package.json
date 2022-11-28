@@ -17,11 +17,12 @@
     "@grapecity/wijmo.angular2.grid.sheet": "5.20221.857",
     "@grapecity/wijmo.angular2.input": "5.20221.857",
     "@grapecity/wijmo.grid": "5.20221.857",
+    "@grapecity/wijmo.grid.sheet": "^5.20221.857",
     "@grapecity/wijmo.input": "5.20221.857",
     "@grapecity/wijmo.interop.grid": "5.20221.857",
     "@grapecity/wijmo.styles": "5.20221.857",
     "core-js": "2.6.5",
-    "jszip": "^3.10.1",
+    "jszip": "3.10.1",
     "rxjs": "6.5.2",
     "zone.js": "0.8.29"
   },
