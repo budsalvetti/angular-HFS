@@ -2,6 +2,7 @@ import '@grapecity/wijmo.styles/wijmo.css';
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import * as wjcGrid from '@grapecity/wijmo.grid';
 import { WjFlexSheet } from '@grapecity/wijmo.angular2.grid.sheet';
+import { WjFlexGridColumn } from '@grapecity/wijmo.angular2.grid';
 
 @Component({
   selector: 'my-app',
@@ -24,6 +25,13 @@ export class AppComponent implements AfterViewInit {
     this.flexSheet.columnCount = this.numColumns;
     this.flexSheet.name= this.sheetName;
     this.populateFlexSheet();
+
+    this.flex.applyCellsStyle({
+      background: 'black',
+      color: 'white'
+  }, [new wjcGrid.CellRange(1, 0, 10, 0), new wjcGrid.CellRange(0, 1, 0, 6)]);
+
+
   }
 
 
@@ -37,12 +45,16 @@ export class AppComponent implements AfterViewInit {
   let rowTwoInitialVal = 1;
   let primeNumberIndex = 0;
 
+  let columnTotals: number[] = [];
+
   // get an array of prime numbers prepared
   const primeNumArray: number[] = this.getArrayOfPrimes(this.numberOfPrimesNeeded);
 
 
     for (let row = 0; row < this.numRows; row++) {
         for (let col = 0; col < this.numColumns; col++) {
+
+
 
           // set first row to even numbers starting at 2nd column
           if(row == 0){
@@ -59,12 +71,14 @@ export class AppComponent implements AfterViewInit {
           } else if (col === 0) {
               cellData = primeNumArray[primeNumberIndex];
               primeNumberIndex++;
-          } else {
+          }  else {
             /* Set each cell in the row 11 to a formula that adds the value of the numbers above */
             cellData = row + col;
           }
             this.flex.setCellData(row, col, cellData);
         }
+
+
     }
 
   }
