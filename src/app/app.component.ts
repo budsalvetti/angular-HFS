@@ -51,13 +51,16 @@ export class AppComponent implements AfterViewInit {
               cellData = evenNum;
               evenNum+=2;
             }
-
+          // Fill rows 2-10 of the grid with numbers 1-45
           } else if (row <= 9 && col > 0) {
-              cellData = rowTwoInitialVal++;
+            cellData = rowTwoInitialVal++;
+
+          /* Set the Row Headers (Column A) to display prime numbers incrementing down */
           } else if (col === 0) {
               cellData = primeNumArray[primeNumberIndex];
               primeNumberIndex++;
           } else {
+            /* Set each cell in the row 11 to a formula that adds the value of the numbers above */
             cellData = row + col;
           }
             this.flex.setCellData(row, col, cellData);
