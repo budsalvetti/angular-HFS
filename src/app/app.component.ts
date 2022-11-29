@@ -1,7 +1,6 @@
 import '@grapecity/wijmo.styles/wijmo.css';
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import * as wjGrid from '@grapecity/wijmo.grid';
-import * as wjcSheet from '@grapecity/wijmo.grid.sheet';
+import * as wjcGrid from '@grapecity/wijmo.grid';
 import { WjFlexSheet } from '@grapecity/wijmo.angular2.grid.sheet';
 
 @Component({
@@ -11,24 +10,62 @@ import { WjFlexSheet } from '@grapecity/wijmo.angular2.grid.sheet';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild(WjFlexSheet) flex;
+  @ViewChild('flex') flex;
   @ViewChild('flex_sheet') flexSheet;
 
   readonly numRows = 11;
   readonly numColumns = 6;
   readonly sheetName = "Next Gen Worksheet";
 
-  initializeFlexSheet() {
-    
+  private initializeFlexSheet() {
+
     this.flexSheet.rowCount = this.numRows;
     this.flexSheet.columnCount = this.numColumns;
-    this.flexSheet.name = "Next Gen Worksheet";
+    this.flexSheet.name= this.sheetName;
+    this.populateFlexSheet();
+  }
 
-      for (let row = 0; row < this.numRows; row++) {
-          for (let col =  0; col < this.numColumns; col++) {
-              this.flex.setCellData(row, col, row + col);
+  /**
+   * populate the flex sheet with data
+   */
+ private populateFlexSheet(){
+
+  let evenNum = 2;
+  let cellData: any;
+  // the first prime number is 3 so we initialize it
+  let nextPrimeNum = 3;
+  
+    for (let row = 0; row < this.numRows; row++) {
+        for (let col =  0; col < this.numColumns; col++) {
+
+          // set first row to even numbers starting at 2nd column
+          if(row == 0){
+
+            if(col > 0){
+              cellData = evenNum;
+              evenNum+=2;
+            }
+
+          } else {
+            cellData = row + col;
           }
+            this.flex.setCellData(row, col, cellData);
+        }
+    }
+  }
+
+  getNextPrimeNum(currentPrimeNum: number){
+
+    for (let i = currentPrimeNumer; i < num; i++){
+      if (num % i == 0){
+        // Number is NOT prime
       }
+    }
+    if (num > 1){
+      // Number IS prime
+    } else {
+      // Number is NOT prime
+    }
   }
 
   ngAfterViewInit(){
