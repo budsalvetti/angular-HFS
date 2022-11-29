@@ -25,6 +25,8 @@ export class AppComponent implements AfterViewInit {
     this.populateFlexSheet();
   }
 
+  currentPrimeNum: number = 3;
+
   /**
    * populate the flex sheet with data
    */
@@ -32,9 +34,8 @@ export class AppComponent implements AfterViewInit {
 
   let evenNum = 2;
   let cellData: any;
-  // the first prime number is 3 so we initialize it
-  let nextPrimeNum = 3;
-  
+
+
     for (let row = 0; row < this.numRows; row++) {
         for (let col =  0; col < this.numColumns; col++) {
 
@@ -46,26 +47,19 @@ export class AppComponent implements AfterViewInit {
               evenNum+=2;
             }
 
-          } else {
+          } else if (row <= 9) {
             cellData = row + col;
+          } else {
+            cellData = this.getNextPrimeNum();
           }
             this.flex.setCellData(row, col, cellData);
         }
     }
+
   }
 
-  getNextPrimeNum(currentPrimeNum: number){
-
-    for (let i = currentPrimeNumer; i < num; i++){
-      if (num % i == 0){
-        // Number is NOT prime
-      }
-    }
-    if (num > 1){
-      // Number IS prime
-    } else {
-      // Number is NOT prime
-    }
+  getNextPrimeNum(){
+    return this.currentPrimeNum; 
   }
 
   ngAfterViewInit(){
