@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
     // set top row and left column background to gray with white text
     this.flex.applyCellsStyle(
       {
-        background: 'gray',
+        background: '#333333',
         color: 'white',
       },
       [new wjcGrid.CellRange(0, 0, 10, 0), new wjcGrid.CellRange(0, 1, 0, 6)]
