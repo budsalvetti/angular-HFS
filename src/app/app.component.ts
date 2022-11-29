@@ -83,13 +83,13 @@ export class AppComponent implements AfterViewInit {
       }
     }
 
-    // add SUM formulas to last row there's probably a more programmery way to do this
-    // but I'm afraid it might be quite unreadable
-    this.flex.setCellData(10, 1, '=SUM(B2:B10)');
-    this.flex.setCellData(10, 2, '=SUM(C2:C10)');
-    this.flex.setCellData(10, 3, '=SUM(D2:D10)');
-    this.flex.setCellData(10, 4, '=SUM(E2:E10)');
-    this.flex.setCellData(10, 5, '=SUM(F2:F10)');
+    const excelColString = 'BCDEF';
+
+    for( let i=0; i< this.numColumns; i++){
+      let colCharacter =  excelColString.charAt(i);
+      let formula = '=SUM('  + colCharacter + '2'  + ':' + colCharacter  + (this.numRows -1) + ')';
+      this.flex.setCellData(10, (i+1) , formula);
+    }
 
   }
 
