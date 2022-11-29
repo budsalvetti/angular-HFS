@@ -30,7 +30,7 @@ export class AppComponent implements AfterViewInit {
         background: 'gray',
         color: 'white',
       },
-      [new wjcGrid.CellRange(1, 0, 10, 0), new wjcGrid.CellRange(0, 1, 0, 6)]
+      [new wjcGrid.CellRange(0, 0, 10, 0), new wjcGrid.CellRange(0, 1, 0, 6)]
     );
 
     // set top row and left column background to light blue with white text
