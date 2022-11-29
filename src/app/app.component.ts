@@ -16,16 +16,16 @@ export class AppComponent implements AfterViewInit {
   readonly numRows = 11;
   readonly numColumns = 6;
   readonly sheetName = "Next Gen Worksheet";
+  readonly numberOfPrimesNeeded = 10;
+
 
   private initializeFlexSheet() {
-
     this.flexSheet.rowCount = this.numRows;
     this.flexSheet.columnCount = this.numColumns;
     this.flexSheet.name= this.sheetName;
     this.populateFlexSheet();
   }
 
-  currentPrimeNum: number = 3;
 
   /**
    * populate the flex sheet with data
@@ -34,10 +34,15 @@ export class AppComponent implements AfterViewInit {
 
   let evenNum = 2;
   let cellData: any;
+  let rowTwoInitialVal = 1;
+  let primeNumberIndex = 0;
+
+  // get an array of prime numbers prepared
+  const primeNumArray: number[] = this.getArrayOfPrimes(this.numberOfPrimesNeeded);
 
 
     for (let row = 0; row < this.numRows; row++) {
-        for (let col =  0; col < this.numColumns; col++) {
+        for (let col = 0; col < this.numColumns; col++) {
 
           // set first row to even numbers starting at 2nd column
           if(row == 0){
@@ -47,10 +52,13 @@ export class AppComponent implements AfterViewInit {
               evenNum+=2;
             }
 
-          } else if (row <= 9) {
-            cellData = row + col;
+          } else if (row <= 9 && col > 0) {
+              cellData = rowTwoInitialVal++;
+          } else if (col === 0) {
+              cellData = primeNumArray[primeNumberIndex];
+              primeNumberIndex++;
           } else {
-            cellData = this.getNextPrimeNum();
+            cellData = row + col;
           }
             this.flex.setCellData(row, col, cellData);
         }
@@ -58,9 +66,30 @@ export class AppComponent implements AfterViewInit {
 
   }
 
-  getNextPrimeNum(){
-    return this.currentPrimeNum; 
+  private isPrime(num) {
+    for (var i = 2; i < num; i++){
+      if (num % i == 0){
+        return false;
+      }
+    }
+    if (num > 1){
+      return true;
+    } else {
+      return false;
+    }
   }
+  
+  private getArrayOfPrimes(numOfPrimes) : number[] {
+    var arr = [];
+    var counter = 2;
+    while ( arr.length < numOfPrimes ) {
+      if( this.isPrime(counter) ){
+        arr.push(counter);
+      }
+      counter++;
+    }
+    return arr;
+  };
 
   ngAfterViewInit(){
     this.initializeFlexSheet()
