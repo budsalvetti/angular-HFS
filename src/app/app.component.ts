@@ -53,8 +53,6 @@ export class AppComponent implements AfterViewInit {
     let rowTwoInitialVal = 1;
     let primeNumberIndex = 0;
 
-    let formulaCols: string[] = ['B','C','D','E','F'];
-
     // get an array of prime numbers prepared
     const primeNumArray: number[] = this.getArrayOfPrimes(
       this.numberOfPrimesNeeded
