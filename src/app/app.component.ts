@@ -22,7 +22,6 @@ export class AppComponent implements AfterViewInit {
     this.flexSheet.rowCount = this.numRows;
     this.flexSheet.columnCount = this.numColumns;
     this.flexSheet.name = this.sheetName;
-    this.populateFlexSheet();
 
     // set top row and left column background to gray with white text
     this.flex.applyCellsStyle(
@@ -41,6 +40,8 @@ export class AppComponent implements AfterViewInit {
       },
       [new wjcGrid.CellRange(10, 1, 10, 6)]
     );
+
+    this.populateFlexSheet();
   }
 
   /**
@@ -52,7 +53,7 @@ export class AppComponent implements AfterViewInit {
     let rowTwoInitialVal = 1;
     let primeNumberIndex = 0;
 
-    let columnTotals: number[] = [];
+    let formulaCols: string[] = ['B','C','D','E','F'];
 
     // get an array of prime numbers prepared
     const primeNumArray: number[] = this.getArrayOfPrimes(
@@ -79,10 +80,21 @@ export class AppComponent implements AfterViewInit {
           /* Set each cell in the row 11 to a formula that adds the value of the numbers above */
           cellData = row + col;
         }
+
         this.flex.setCellData(row, col, cellData);
       }
     }
+
+    // add SUM formulas to last row there's probably a more programmery way to do this
+    // but I'm afraid it might be quite unreadable
+    this.flex.setCellData(10, 1, '=SUM(B2:B10)');
+    this.flex.setCellData(10, 2, '=SUM(C2:C10)');
+    this.flex.setCellData(10, 3, '=SUM(D2:D10)');
+    this.flex.setCellData(10, 4, '=SUM(E2:E10)');
+    this.flex.setCellData(10, 5, '=SUM(F2:F10)');
+
   }
+
 
   private isPrime(num) {
     for (var i = 2; i < num; i++) {
